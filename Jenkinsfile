@@ -16,10 +16,12 @@ pipeline {
         }
 
         stage('Load Image to Kind') {
-            steps {
-                bat 'kind load docker-image dhanush-app:latest'
-            }
-        }
+    steps {
+        bat 'where kind'
+        bat 'kind version'
+        bat 'kind load docker-image dhanush-app:latest'
+    }
+}
 
         stage('Deploy to Kubernetes') {
             steps {
