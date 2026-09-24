@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: dhanush-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: dhanush-app
+
+  template:
+    metadata:
+      labels:
+        app: dhanush-app
+
+    spec:
+      containers:
+        - name: dhanush-app
+          image: dhanush-app:latest
+          imagePullPolicy: IfNotPresent
+
+          ports:
+            - containerPort: 80
