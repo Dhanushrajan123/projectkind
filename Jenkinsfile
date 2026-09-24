@@ -19,10 +19,9 @@ pipeline {
     steps {
         bat 'where kind'
         bat 'kind version'
-        bat 'kind load docker-image dhanush-app:latest'
+        bat 'kind load docker-image dhanush-app:latest --name dhanush'
     }
 }
-
         stage('Deploy to Kubernetes') {
             steps {
                 bat 'kubectl apply -f deployment.yaml'
